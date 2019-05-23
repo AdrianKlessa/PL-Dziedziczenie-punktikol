@@ -20,8 +20,12 @@ public:
     }
 };
 
+
 class Kolo : public Punkt
 {
+protected:
+
+
     float r;
     string nazwa;
 
@@ -42,11 +46,32 @@ public:
     };
 };
 
+class Kula : public Kolo
+{
+    public:
+    Kula(string n="Kulka", string ns="S",float a=0, float b=0, float pr=1)
+    :Kolo(n,ns,a,b,pr)
+    {
+
+    }
+
+    void wyswietl()
+    {
+        cout << "Kula o nazwie " << nazwa << endl;
+        cout << "Srodek kuli: " << endl;
+        Kolo::wyswietl();
+        cout << endl << "Objetosc kuli: " << endl << 4*M_PI*r*r*r/3;
+
+    }
+};
 
 int main()
 {
     Kolo k1;
     k1.wyswietl();
+    cout << endl << endl;
+    Kula K1("Moja kula","Srodek",2,3,2.5);
+    K1.wyswietl();
 
     return 0;
 }
